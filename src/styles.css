@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+.blue-grey-theme {
+    background-color: #6e8599 !important;
+}
+
+.dark-blue-grey-theme {
+    background-color: #4a5d6d !important;
+}
+
+.row {
+    margin-bottom: 5px !important;
+}
+
