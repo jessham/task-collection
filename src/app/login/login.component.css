@@ -1,0 +1,21 @@
+
+.line {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.input-field input[type=text]:focus + label, .input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label {
+    color: #2196f3;
+}
+
+.input-field input[type=text]:focus, .input-field input[type=email]:focus,
+.input-field input[type=password]:focus{
+    border-bottom: 1px solid #2196f3;
+    box-shadow: none;
+}
+
+.input-field .prefix.active {
+    color: #2196f3;
+}
+       

@@ -9,6 +9,7 @@ import { MaterializeModule } from 'angular2-materialize';
 import { ListComponent } from './list/list.component';
 import { ListService } from './list/list.service';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './login.service';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [
     HttpClientModule,
-    ListService
+    ListService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

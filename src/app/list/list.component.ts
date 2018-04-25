@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ListService } from './list.service';
 
 import { Task } from '../task.model';
@@ -10,19 +10,15 @@ import { Task } from '../task.model';
 })
 export class ListComponent implements OnInit {
 
+  @Input() user;
+
   totalTasks: number = 0;
-  totalDoneTasks: number = 0;
-  
+  totalDoneTasks: number = 0;  
   tasks = [];
-  foundTasks = [];
-  
-  user = {
-    id: '0f9fc55f5ebdadf05439d4fa5034c1a9',
-    imgURL: '../assets/profile_photo.jpg',
-    fullname: 'Jessica Miyuki Ham'
-  };
-  
-  newTask = new Task('',false,0,this.user.id);
+  foundTasks = [];  
+  newTask = new Task('',false,0,'');
+
+  imgURL = '../assets/profile_photo.jpg';
 
   constructor(
     private listService: ListService
@@ -33,7 +29,7 @@ export class ListComponent implements OnInit {
   }
   
   getTasks() {
-    this.listService.getTasks(this.user.id)
+    this.listService.getTasks(this.user._id)
     .then(result => {
       // storing retrieved tasks
       this.tasks = result.docs;
@@ -51,6 +47,7 @@ export class ListComponent implements OnInit {
   
   addTask() {
     if (this.newTask.text != '') {
+      this.newTask.user_id = this.user._id;
       this.newTask.creation_date = Date.now();
       this.listService.addTask(this.newTask)
         .then((result) => {
@@ -58,7 +55,7 @@ export class ListComponent implements OnInit {
           this.tasks.push(result);
           this.totalTasks++;
           // clearing input
-          this.newTask = new Task('',false,0,this.user.id);
+          this.newTask = new Task('',false,0,'');
         })
         .catch((error) => {
           alert('An error occurred while adding the task. Please try again later.');
@@ -85,9 +82,9 @@ export class ListComponent implements OnInit {
     .then(result => {
         // updating task database info
         task._rev = result._rev;
-        // if task was checked before
-        if (task.done == true) this.totalDoneTasks--;
-        else this.totalDoneTasks++;
+        // if task is now checked
+        if (task.done == true) this.totalDoneTasks++;
+        else this.totalDoneTasks--;
       })
       .catch(error => {
         // reverting failed modification

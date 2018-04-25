@@ -7,11 +7,11 @@
             <li class="tab col s1" (click)="clearInput('search_input')"><a href="#search"><i class="material-icons tab-icon" style="margin-top:10px">search</i></a></li>
             <li class="tab col s3 offset-l7">
                 <div class="col s10" style="margin-left:-20px">
-                    <h6 class="white-text user-info text-overflow right-align">{{ user.fullname }}</h6>
+                    <h6 class="white-text user-info text-overflow right-align">{{ user.name }}</h6>
                     <h6 class="grey-text user-info right-align">Logged in</h6>
                 </div>
                 <div class="col s2" style="margin-left:-10px">
-                    <img src="{{ user.imgURL }}" class="profile-photo">
+                    <img src="{{ imgURL }}" class="profile-photo">
                 </div>
             </li>
             <div class="indicator" style="display:none"></div>

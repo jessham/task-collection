@@ -19,7 +19,9 @@ export class ListService {
             .then(response => {
                 return response;
             })
-            .catch();
+            .catch(error => {
+                return Promise.reject(error);
+            });
     } 
     
     addTask(task): Promise<any> {
@@ -29,6 +31,9 @@ export class ListService {
             .toPromise()
             .then(response => {
                 return response;
+            })
+            .catch(error => {
+                return Promise.reject(error);
             });
     }
 
@@ -40,7 +45,9 @@ export class ListService {
             .then(response => {
                 return response;
             })
-            .catch();
+            .catch(error => {
+                return Promise.reject(error);
+            });
     }
     
     deleteTask(task): Promise<any> {
@@ -51,6 +58,8 @@ export class ListService {
             .then(response => {
                 return response;
             })
-            .catch();
+            .catch(error => {
+                return Promise.reject(error);
+            });
     }
 }

@@ -1,0 +1,29 @@
+<!-- SIGNUP/LOGIN BUTTON -->
+<div class="section center-align">
+  <a class="waves-effect waves-light btn modal-trigger black" href="#modal1" (click)="openModal()">Sign up/Login</a>
+</div>
+<!-- SIGNUP/LOGIN FORM -->
+<div id="modal1" class="modal" materialize="modal" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <h4>SIGN UP/LOGIN</h4>
+    <div class="divider blue line"></div>    
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="name" type="text" [(ngModel)]="user.name" name="name">
+            <label for="name">Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="email" type="email" [(ngModel)]="user.email" name="email">
+            <label for="email">Email</label>
+          </div>
+        </div>
+      </form>
+    </div>  
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect btn-flat" (click)="signup()">SEND</a>
+  </div>
+</div>
+          

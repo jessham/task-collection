@@ -8,11 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 
-  // user = {
-  //   id: '0f9fc55f5ebdadf05439d4fa5034c1a9',
-  //   imgURL: '../assets/profile_photo.jpg',
-  //   fullname: 'Jessica Miyuki Ham Kawazoe'
-  // };
-
   user = null;
+
+  ngOnInit() {
+    if (sessionStorage.user)
+      this.user = JSON.parse(sessionStorage.user);
+  }
 }
