@@ -1,6 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
-import { MaterializeAction } from 'angular2-materialize';
-
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -16,8 +14,6 @@ export class LoginComponent implements OnInit {
     email: ''
   }
 
-  modalActions = new EventEmitter<string|MaterializeAction>();
-
   constructor(
     private loginService: LoginService
   ) { }
@@ -26,17 +22,16 @@ export class LoginComponent implements OnInit {
 
   }
 
-  openModal() {
-    this.modalActions.emit({action:"modal",params:['open']});
-  }
-
   signup() {
-    this.loginService.signup(this.user)
-      .then(response => {
-        // storing user info in session storage
-        sessionStorage.setItem('user',JSON.stringify(response));
-        window.location.reload();
-      })
-      .catch(error => alert('An error occurred while signing up. Please try again later.'));
+    if (this.user.name && this.user.email) {
+      this.loginService.signup(this.user)
+        .then(response => {
+          // storing user info in session storage
+          sessionStorage.setItem('user',JSON.stringify(response));
+          window.location.reload();
+        })
+        .catch(error => alert('An error occurred while signing up. Please try again later.'));
+    } else
+      alert('Please insert your name and email.')
   }
 }
