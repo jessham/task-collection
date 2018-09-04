@@ -3,8 +3,8 @@
     <!-- TABS -->
     <div class="col s12">
         <ul class="tabs dark-blue-grey-theme">
-            <li class="tab col s1" (click)="getTasks()"><a href="#add"><i class="material-icons tab-icon" style="margin-top:10px">add</i></a></li>
-            <li class="tab col s1" (click)="clearInput('search_input')"><a href="#search"><i class="material-icons tab-icon" style="margin-top:10px">search</i></a></li>
+            <li class="tab col s1" (click)="getTasks()"><a href="#add"><i class="material-icons tab-icon">add</i></a></li>
+            <li class="tab col s1" (click)="clearInput('search_input')"><a href="#search"><i class="material-icons tab-icon">search</i></a></li>
             <li class="tab col s3 offset-l7">
                 <div class="col s10" style="margin-left:-20px">
                     <h6 class="white-text user-info text-overflow right-align">{{ user.name }}</h6>
@@ -31,17 +31,7 @@
             </div>
         </div>
         <!-- LIST -->
-        <div class="col s12 white single-card scroll" *ngFor="let task of tasks">
-            <div class="col s11 left-align padding">
-                <form class="custom-content">
-                    <input type="checkbox" id="{{ task._id }}" (click)="actionOnCheckbox(task)" [checked]="task.done">
-                    <label for="{{ task._id }}" class="grey-text text-darken-1 task-text">{{ task.text }}</label>
-                </form>
-            </div>
-            <div class="col s1 right-align" (click)="deleteTask(task)">
-                <a class="waves-effect waves btn-flat grey-text" style="margin-left:-50px"><i class="material-icons">close</i></a>
-            </div>
-        </div>
+        <app-task-list [(list)]="tasks" (actionOnCheckbox)="actionOnCheckbox($event)" (deleteTask)="deleteTask($event)"></app-task-list>
     </div>
 
     <!-- SEARCH INPUT -->
@@ -52,17 +42,7 @@
             </div>
         </div>
         <!-- LIST -->
-        <div class="col s12 white single-card scroll" *ngFor="let task of foundTasks">
-            <div class="col s11 left-align padding">
-                <form class="custom-content">
-                    <input type="checkbox" id="{{ task._id }}" (click)="actionOnCheckbox(task)" [checked]="task.done">
-                    <label for="{{ task._id }}" class="grey-text text-darken-1 task-text">{{ task.text }}</label>
-                </form>
-            </div>
-            <div class="col s1 right-align" (click)="deleteTask(task)">
-                <a class="waves-effect waves btn-flat grey-text" style="margin-left:-50px"><i class="material-icons">close</i></a>
-            </div>
-        </div>
+        <app-task-list [(list)]="foundTasks" (actionOnCheckbox)="actionOnCheckbox($event)" (deleteTask)="deleteTask($event)"></app-task-list>
     </div>
 </div>  
 

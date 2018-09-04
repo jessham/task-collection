@@ -70,6 +70,10 @@ export class ListComponent implements OnInit {
       // locally removing task
       var index = this.tasks.indexOf(task);
       this.tasks.splice(index,1);
+      var index = this.foundTasks.indexOf(task)
+      this.foundTasks.splice(index,1);
+
+      this.totalTasks--;
     })
     .catch(error => {
       alert('An error occurred while deleting the task. Please try again later.');

@@ -11,7 +11,7 @@ export class AppComponent {
   user = null;
 
   ngOnInit() {
-    if (sessionStorage.user)
-      this.user = JSON.parse(sessionStorage.user);
+    if (sessionStorage.getItem('user'))
+      this.user = JSON.parse(sessionStorage.getItem('user'));
   }
 }

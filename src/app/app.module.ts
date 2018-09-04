@@ -10,13 +10,15 @@ import { ListComponent } from './list/list.component';
 import { ListService } from './list/list.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login.service';
+import { TaskListComponent } from './task_list/task_list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    LoginComponent
+    LoginComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserModule,

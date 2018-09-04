@@ -1,0 +1,36 @@
+/*** TASKS LIST ***/
+
+.single-card {
+    min-height: 40px;
+    border-bottom: 1px solid darkgrey;
+}
+
+.padding {
+    padding-left: 30px;
+}
+
+.custom-content {
+    margin: 6px 20px 10px 0;
+}
+
+.task-text {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+[type="checkbox"]:checked + label::before {
+    border-right: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+}
+
+[type="checkbox"]:checked + .task-text {
+    color: lightgray !important;
+}
+
+.scroll {
+    overflow: auto;
+}
+
+.full-height {
+    height: 100%;
+}

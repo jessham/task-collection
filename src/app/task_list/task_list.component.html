@@ -1,0 +1,12 @@
+<!-- LIST -->
+<div class="col s12 white single-card scroll" *ngFor="let task of tasks">
+    <div class="col s9 left-align padding">
+        <form class="custom-content">
+            <input type="checkbox" id="{{ task._id }}" (click)="editCheckbox(task)" [checked]="task.done">
+            <label for="{{ task._id }}" class="grey-text text-darken-1 task-text">{{ task.text }}</label>
+        </form>
+    </div>
+    <div class="col s1 right-align" (click)="delete(task)">
+        <a class="waves-effect waves btn-flat grey-text"><i class="material-icons">close</i></a>
+    </div>
+</div>
